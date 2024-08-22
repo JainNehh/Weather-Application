@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Application</title>
+    <!-- <link rel="stylesheet" href="/style/style.css"> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: black;
+        color: aliceblue;
+        text-align: center;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        padding: 2rem;
+        background-color: #f0f0f0ee;
+        backdrop-filter: blur(20px);
+        max-width: 90rem;
+        min-width: 60%;
+        border-radius: 1rem;
+      }
+      .top {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+      .searchBar {
+        background-color: black;
+        display: flex;
+        gap: 0.3rem;
+        justify-content: space-between;
+        align-items: center;
+        height: max-content;
+        padding: 0.4rem;
+        padding-left: 0.8rem;
+        border-radius: 0.4rem;
+      }
+      input[type="text"] {
+        margin: 0;
+        padding: 0.5rem;
+        width: 15rem;
+        border-radius: 0.4rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: white;
+      }
+
+      .mid {
+        padding: 3rem;
+        color: black;
+      }
+      .place-date {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.2rem;
+      }
+      .place {
+        font-size: 2.5rem;
+      }
+      .date {
+        font-size: 1.4rem;
+        color: rgb(87, 83, 83);
+      }
+      .temp {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0.5rem;
+        justify-content: center;
+        align-items: center;
+      }
+      .temperature {
+        font-size: 2.5rem;
+      }
+      .min-max {
+        display: flex;
+        gap: 2rem;
+        font-size: 1.4rem;
+        justify-content: center;
+        padding: 1rem;
+        color: rgb(87, 83, 83);
+      }
+      .grid-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .ico {
+        width: 2.5rem;
+      }
+      .box {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 1rem;
+        display: flex;
+        padding: 1rem;
+        color: black;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+      }
+      .side-box {
+        font-size: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      ::placeholder {
+        color: white;
+        opacity: 0.8;
+      }
+    </style>
+    <div class="container">
+      <section class="top">
+        <form class="searchBar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search your city.." class="cityname"  />
+        </form>
+      </section>
+      <section class="mid">
+        <div class="main-content">
+          <div class="place-date">
+            <h3 class="place">Jaipur, Rajasthan, India</h3>
+            <div class="date">Wednesday, August 21 2024 at 10:00 PM</div>
+          </div>
+          <div class="temp">
+            <div class="icon">
+                <svg fill="#000000" height="80px" width="80px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                viewBox="0 0 512.001 512.001" xml:space="preserve">
+           <g>
+               <g>
+                   <path d="M344.381,143.771C254.765,56.017,102.37,103.776,79.825,227.7c-31.849,4.598-59.138,25.445-72.018,55.076
+                       c-0.016,0.035-0.032,0.07-0.047,0.107c-26.687,61.602,18.784,130.232,85.51,130.232h282.267
+                       c75.246,0,136.463-61.216,136.463-136.462C512,189.241,430.314,123.682,344.381,143.771z M375.537,381.12H93.271
+                       c-69.246,0-84.534-98.263-18.714-119.456c14.753-4.65,43.01-7.348,74.38,21.892c6.464,6.024,16.586,5.667,22.61-0.794
+                       c6.024-6.464,5.668-16.586-0.794-22.61c-17.93-16.712-38.071-27.33-58.484-31.453c22.034-99.077,147.374-131.851,215.247-56.305
+                       c4.189,4.661,10.714,6.451,16.693,4.57c67.272-21.117,135.795,29.374,135.795,99.69
+                       C480.005,334.256,433.141,381.12,375.537,381.12z"/>
+               </g>
+           </g>
+           </svg>
+            </div>
+            <h2 class="temperature">278° Clouds</h2>
+          </div>
+          <div class="min-max">
+            <h4 class="min-temp">Min: 277°</h4>
+            <h4 class="max-temp">Max: 279°</h4>
+          </div>
+        </div>
+      </section>
+      <section class="bottom">
+        <div class="grid-box">
+          <div class="box">
+            <img
+              class="ico"
+              src="https://cdn-icons-png.flaticon.com/512/1843/1843544.png"
+              alt
+            />
+            <div class="side-box">
+              <p class="type">Feels Like</p>
+              <p class="type-val-feels-like">275°</p>
+            </div>
+          </div>
+          <div class="box">
+            <img
+              class="ico"
+              src="https://cdn-icons-png.flaticon.com/512/5587/5587247.png"
+              alt
+            />
+            <div class="side-box">
+              <p class="type">Humidity</p>
+              <p class="type-val-humidity">89%</p>
+            </div>
+          </div>
+          <div class="box">
+            <img
+              class="ico"
+              src="https://cdn-icons-png.flaticon.com/128/2057/2057945.png"
+              alt
+            />
+            <div class="side-box">
+              <p class="type">Wind</p>
+              <p class="type-val-wind">2.58 m/s</p>
+            </div>
+          </div>
+          <div class="box">
+            <img
+              class="ico"
+              src="https://cdn-icons-png.flaticon.com/128/5168/5168107.png"
+              alt
+            />
+            <div class="side-box">
+              <p class="type">Pressure</p>
+              <p class="type-val-pressure">983 hPa</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  <script src="script.js"></script>
+  </body>
+  
+</html>
